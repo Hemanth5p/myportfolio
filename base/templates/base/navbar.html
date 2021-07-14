@@ -1,0 +1,27 @@
+
+    <section class="navigation--bar">
+        <nav class="navbar navbar-dark ">
+            <a class="nav-link link-light" href="{% url 'home' %}">
+                HOME
+            </a>
+            
+            <a class="nav-link link-light " href="#projects">
+                PROJECTS
+            </a>
+            
+            <a class="nav-link link-light " href="#contact">
+                CONTACT
+            </a>
+            
+            {% if request.user.is_authenticated %}
+            <a class="nav-link link-light " href="{% url 'inbox' %}">
+                INBOX
+            </a>
+
+            <a class="nav-link link-light " href="{% url 'addproject' %}">
+                ADD-PROJECT
+            </a>
+            {% endif %}
+
+        </nav>  
+    </section>

@@ -1,0 +1,119 @@
+
+{% extends 'base/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+    <section class="hero ">
+        <div class="hero--content">
+            <div class="hero--content--intro">
+                <img id="profile_pic" src="{% static 'images/hemanth.jpg' %}" alt="">
+                <h1 class="intro--name">Hemanth <br> Polugalla</h1>
+            </div> 
+            
+            <div class="hero--content--subheadline">
+                <h3 class="description">FullStack Developer</h3>
+                <p class="slogan">Learning things to create responsive and dynamic websites</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class=" section--2" >
+
+        <div id="projects" class="container">
+            
+            <h3>My Projects</h3>
+            <h5>Projects that makes my journey worthwhile</h5>
+            
+            <div class="project--wrapper">
+                
+                {% for project in projects  %}
+                <div class="project--column">
+                    <a href="{% url 'project' project.id %}">
+                        <img class="project--thumbnail" src="{{project.thumbnail.url}}" alt="">
+                    </a>
+                    <div class="project--body">
+                        <h5>{{project.title}}</h5>
+                    </div> 
+                </div>
+                {% empty %}
+                <h3>There are no projects in the database.....</h3>
+                {% endfor %}
+
+            </div>
+    
+            <div class="about--wrapper">
+                <h3>More About Me</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when 
+                    an unknown printer took a galley of type and scrambled it to make a type specimen 
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, 
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+       
+    </section>
+
+
+    <section class="section--1">
+        <div class="skills--container">
+            <h3>Skills</h3>
+            
+            {% for skill in detailedskills %}
+            <div class="skill--wrapper">
+                <h5> {{skill.title}} </h5>
+                <p> {{skill.body}} </p>
+            </div>
+            {% endfor %}
+             
+            <h4>Other Skills</h4>
+            
+            <div class="other--skills--wrapper">
+
+                {% for skill in skills %}
+                <div class="skill--tags">
+                    <span>{{ skill.title }}</span>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+    <section class="section--2">
+        <div id="contact" class="container">
+            <form class="contact--form" method="POST">
+                {% csrf_token %}
+
+                {% for field in form %}
+    
+                <div class="mb-3">
+                    <label for="" class="form-label">{{field.label}}</label>
+                    {{field}}
+                </div>
+
+                {% endfor %}
+
+                <input class="btn btn-primary" type="submit" value="submit">
+
+            </form>
+
+        </div>
+    </section>
+
+
+{% endblock content %}
+
