@@ -3,10 +3,20 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.homepage,name="home"),
-    path('project/<str:pk>/', views.projectpage, name="project"),
-    path('addproject/', views.addproject, name="addproject"),
-    path('editproject/<str:pk>/',views.editproject,name="editproject"),
-    path('inbox/',views.inboxpage,name="inbox"),
-    path('message/<str:pk>/',views.messagepage,name="message"),
+    path('', views.homePage, name="home"),
+    path('project/<str:pk>/', views.projectPage, name="project"),
+
+    path('add-project/', views.addProject, name="add-project"),
+    path('edit-project/<str:pk>/', views.editProject, name="edit-project"),
+
+    path('inbox/', views.inboxPage, name="inbox"),
+    path('message/<str:pk>/', views.messagePage, name="message"),
+
+    path('add-skill/', views.addSkill, name="add-skill"),
+
+    path('add-endorsement/', views.addEndorsement, name="add-endorsement"),
+
+    path('donation/', views.donationPage, name="donation"),
+
+    path('chart/', views.chartPage, name="chart"),
 ]

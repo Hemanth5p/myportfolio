@@ -1,27 +1,32 @@
+<section class="navigation-bar">
+    <a class="nav-link" href="{% url 'home' %}">
+        Home
+    </a>
 
-    <section class="navigation--bar">
-        <nav class="navbar navbar-dark ">
-            <a class="nav-link link-light" href="{% url 'home' %}">
-                HOME
-            </a>
-            
-            <a class="nav-link link-light " href="#projects">
-                PROJECTS
-            </a>
-            
-            <a class="nav-link link-light " href="#contact">
-                CONTACT
-            </a>
-            
-            {% if request.user.is_authenticated %}
-            <a class="nav-link link-light " href="{% url 'inbox' %}">
-                INBOX
-            </a>
 
-            <a class="nav-link link-light " href="{% url 'addproject' %}">
-                ADD-PROJECT
-            </a>
-            {% endif %}
+    <a class="nav-link" href="#">
+        Contact
+    </a>
 
-        </nav>  
-    </section>
+    <!-- <a class="nav-link" href="{% url 'chart' %}">
+        Vote
+    </a> -->
+<!-- 
+    <a class="btn btn-light btn-sm" href="{% url 'donation' %}">
+        BUY ME A COFFEE
+    </a> -->
+
+    {% if request.user.is_authenticated %}
+    <a class="nav-link" href="{% url 'inbox' %}">
+        Inbox
+    </a>
+    <a class="nav-link" href="{% url 'add-project' %}">
+        Add Project
+    </a>
+    <a class="nav-link" href="{% url 'add-skill' %}">
+        Add Skill
+    </a>
+
+
+    {% endif %}
+</section>
