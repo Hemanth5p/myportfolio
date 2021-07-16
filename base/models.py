@@ -69,7 +69,7 @@ class Tag(models.Model):
 
 class Message(models.Model):
     name = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200, null=True)
+    email = models.EmailField(max_length=200, null=True)
     subject = models.CharField(max_length=200, null=True)
     body = models.TextField()
     is_read = models.BooleanField(default=False)
