@@ -24,7 +24,7 @@ class Question(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
-    thumbnail = models.ImageField(null=True)
+    thumbnail = models.ImageField(upload_to = 'static/images/' , null=True)
     body = RichTextUploadingField()
     slug = models.SlugField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
