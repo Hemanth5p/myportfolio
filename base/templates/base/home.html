@@ -64,7 +64,7 @@
         {% for skill in detailedSkills %}
         <div class="skill--wrapper">
             {% if skill.logo %}
-            <img class="skill--logo" src="{{skill.logo.url}}">
+            <img class="skill--logo" src="/static/images{{skill.logo.url}}">
             {% endif %}
             <div>
                 <h5>{{skill.title}}</h5>
